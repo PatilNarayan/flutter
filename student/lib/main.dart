@@ -14,6 +14,7 @@ class Student extends StatelessWidget {
     return MaterialApp(
       home: HomePage(),
       themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
       darkTheme: ThemeData(brightness: Brightness.dark),
     );
   }
