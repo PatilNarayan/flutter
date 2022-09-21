@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student/pages/homepage.dart';
 import 'package:student/pages/loginpage.dart';
+import 'package:student/route.dart';
 
 void main() {
   runApp(Student());
@@ -19,8 +20,8 @@ class Student extends StatelessWidget {
       darkTheme: ThemeData(brightness: Brightness.dark),
       initialRoute: "/login",
       routes: {
-        "/": (context) => HomePage(),
-        "/login": (context) => LoginPage()
+        AppRoutes.homeRoute: (context) => HomePage(),
+        AppRoutes.loginRoute: (context) => LoginPage()
       },
     );
   }

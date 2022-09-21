@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:student/route.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    String name = "";
     return Material(
       color: Colors.white,
       child: Column(
@@ -13,7 +20,7 @@ class LoginPage extends StatelessWidget {
             height: 20,
           ),
           Text(
-            "Login",
+            "Login $name",
             style: TextStyle(
                 fontSize: 40,
                 color: Colors.blueAccent,
@@ -28,6 +35,10 @@ class LoginPage extends StatelessWidget {
                     hintText: "Enter username",
                     labelText: "UserName",
                   ),
+                  onChanged: (value) {
+                    name = value;
+                    setState(() {});
+                  },
                 ),
                 TextField(
                   obscureText: true,
@@ -39,7 +50,11 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(onPressed: () {}, child: Text("Login"))
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, AppRoutes.homeRoute);
+                    },
+                    child: Text("Login"))
               ],
             ),
           )
