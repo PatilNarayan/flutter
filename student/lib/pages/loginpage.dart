@@ -7,9 +7,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String name = "";
+  bool changeButton = false;
+
   @override
   Widget build(BuildContext context) {
-    String name = "";
     return Material(
       color: Colors.white,
       child: Column(
@@ -50,11 +52,26 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, AppRoutes.homeRoute);
-                    },
-                    child: Text("Login"))
+                InkWell(
+                  onTap: () async {
+                    setState(() {
+                      changeButton = true;
+                    });
+                    await Future.delayed(Duration(seconds: 1));
+                    Navigator.pushNamed(context, AppRoutes.homeRoute);
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(seconds: 1),
+                    height: 200,
+                    width: changeButton ? 50 : 100,
+                    decoration: BoxDecoration(color: Colors.black),
+                  ),
+                )
+                // ElevatedButton(
+                //     onPressed: () {
+                //       Navigator.pushNamed(context, AppRoutes.homeRoute);
+                //     },
+                //     child: Text("Login"))
               ],
             ),
           )
