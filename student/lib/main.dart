@@ -19,6 +19,7 @@ class Student extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.deepPurple),
       darkTheme: ThemeData(brightness: Brightness.dark),
       initialRoute: "/login",
+      debugShowCheckedModeBanner: false,
       routes: {
         AppRoutes.homeRoute: (context) => HomePage(),
         AppRoutes.loginRoute: (context) => LoginPage()
